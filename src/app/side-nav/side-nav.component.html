@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+    position="end">    
+    <mat-toolbar color="primary">{{ 'SIDENAV.Menu' | translate }}</mat-toolbar>
+    <mat-nav-list>
+      <div class="nav-user-profile"></div>
+      <a mat-list-item [routerLink]="['/make-a-request']" (click)="drawer.opened && drawer.close()">{{ 'SIDENAV.MakeRequest' | translate }}</a>
+      <a mat-list-item [routerLink]="['/view-items']" (click)="drawer.opened && drawer.close()">{{ 'SIDENAV.ViewRequests' | translate }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <span style="text-align: center;flex: 1 1 auto;" id="main_logo">
+              <img src="..\assets\logos\white-color.png" alt="reUse logo" height="30px">
+            </span>
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+{
+    "APP": {
+        "TITLE": "ReUse App"
+    },
+    "SIDENAV": {
+        "Menu": "Меню",
+        "MakeRequest": "Направи Заявка",
+        "ViewRequests": "Моите Заявки",
+        "UserProfile": "Профил"
+    }
+}
